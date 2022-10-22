@@ -1,0 +1,8 @@
+= Introduction
+
+This repo contains sample data for the _roboquant_ algo-trading platform. It also contains a kotlin script file to generate the data.
+
+[source,shell]
+----
+./generate.sh <PATH_WITH_DATA>
+----
