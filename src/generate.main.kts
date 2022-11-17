@@ -1,8 +1,7 @@
 @file:DependsOn("org.roboquant:roboquant:0.9.7-SNAPSHOT")
 
 import org.roboquant.common.*
-import org.roboquant.feeds.avro.AvroFeed
-import org.roboquant.feeds.avro.AvroUtil
+import org.roboquant.feeds.AvroFeed
 import org.roboquant.feeds.csv.CSVFeed
 import kotlin.io.path.Path
 import kotlin.io.path.div
@@ -30,7 +29,7 @@ fun run(pathStr: String) {
     val timeframe = Timeframe.fromYears(2017, 2021)
     val symbols = Universe.sp500.getAssets(timeframe.start).map { it.symbol }.toTypedArray()
 
-    AvroUtil.record(
+    AvroFeed.record(
         feed,
         sp500File,
         timeframe,
@@ -39,7 +38,7 @@ fun run(pathStr: String) {
     )
 
     val smallFile = "./avro/us_small_daily_v3.0.avro"
-    AvroUtil.record(
+    AvroFeed.record(
         feed,
         smallFile,
         timeframe,
