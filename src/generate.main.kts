@@ -1,4 +1,4 @@
-@file:DependsOn("org.roboquant:roboquant:0.9.8-SNAPSHOT")
+@file:DependsOn("org.roboquant:roboquant:1.0.0")
 
 import org.roboquant.common.*
 import org.roboquant.feeds.AvroFeed
@@ -30,7 +30,7 @@ fun run(pathStr: String) {
     }
     feed.merge(tmp)
 
-    val sp500File = "./avro/sp500_pricebar_v4.0.avro"
+    val sp500File = "./avro/sp500_pricebar_v5.0.avro"
     val timeframe = Timeframe.fromYears(2020, 2023)
     val symbols = Universe.sp500.getAssets(timeframe.start).map { it.symbol }.toTypedArray()
 
